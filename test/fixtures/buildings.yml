@@ -3,17 +3,17 @@
 one:
   name: MyString
   address: MyString
-  latitude: 1.5
-  longitude: 1.5
   neighborhood: MyString
   city: MyString
   country: MyString
+  latitude: 1.5
+  longitude: 1.5
 
 two:
   name: MyString
   address: MyString
-  latitude: 1.5
-  longitude: 1.5
   neighborhood: MyString
   city: MyString
   country: MyString
+  latitude: 1.5
+  longitude: 1.5
