@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_18_152320) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_18_152845) do
   create_table "buildings", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -30,6 +30,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_18_152320) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["building_id"], name: "index_reviews_on_building_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.string "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "reviews", "buildings"
