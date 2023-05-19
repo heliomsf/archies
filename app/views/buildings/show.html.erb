@@ -3,6 +3,10 @@
 <%= render @building %>
 
 <div>
+  <% if @building.image? %>
+    <%= image_tag @building.image.url %>
+  <% end %>
+  
   <%= link_to "Edit this building", edit_building_path(@building) %> |
   <%= link_to "Back to buildings", buildings_path %>
 
