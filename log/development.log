@@ -369,3 +369,105 @@ Migrating to AddAverageRatingToBuildings (20230522205334)
   [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/buildings" for ::1 at 2023-05-22 23:04:32 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BuildingsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (0.7ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  ↳ app/views/buildings/index.html.erb:6
+  Rendered buildings/index.html.erb within layouts/application (Duration: 9.1ms | Allocations: 1889)
+  Rendered layout layouts/application.html.erb (Duration: 105.6ms | Allocations: 36909)
+Completed 200 OK in 136ms (Views: 109.8ms | ActiveRecord: 0.7ms | Allocations: 43613)
+
+
+Started GET "/buildings/new" for ::1 at 2023-05-22 23:04:36 +0200
+Processing by BuildingsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buildings/new.html.erb within layouts/application
+  Rendered buildings/_form.html.erb (Duration: 14.9ms | Allocations: 5225)
+  Rendered buildings/new.html.erb within layouts/application (Duration: 16.3ms | Allocations: 5577)
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 7895)
+Completed 200 OK in 34ms (Views: 21.3ms | ActiveRecord: 0.9ms | Allocations: 15615)
+
+
+Started POST "/buildings" for ::1 at 2023-05-22 23:10:24 +0200
+Processing by BuildingsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "building"=>{"name"=>"Rotes Rathaus", "address"=>"Rathausstraße 15", "neighborhood"=>"Mitte", "city"=>"Berlin", "country"=>"Germany", "latitude"=>"52.5183084334611", "longitude"=>"13.408649394653475", "image"=>#<ActionDispatch::Http::UploadedFile:0x0000000114473d98 @tempfile=#<Tempfile:/var/folders/6j/h9t_r7516f1634l1m0kqr0dr0000gn/T/RackMultipart20230522-6665-q72kxo.jpg>, @original_filename="urn-newsml-dpa-com-20090101-180129-99-852092_large_4_3.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"building[image]\"; filename=\"urn-newsml-dpa-com-20090101-180129-99-852092_large_4_3.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Building"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/buildings_controller.rb:28:in `block in create'
+  [1m[36mBuilding Create (3.3ms)[0m  [1m[32mINSERT INTO "buildings" ("name", "address", "latitude", "longitude", "neighborhood", "city", "country", "created_at", "updated_at", "image", "average_rating") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Rotes Rathaus"], ["address", "Rathausstraße 15"], ["latitude", 52.5183084334611], ["longitude", 13.408649394653475], ["neighborhood", "Mitte"], ["city", "Berlin"], ["country", "Germany"], ["created_at", "2023-05-22 21:10:24.184468"], ["updated_at", "2023-05-22 21:10:24.184468"], ["image", "urn-newsml-dpa-com-20090101-180129-99-852092_large_4_3.jpg"], ["average_rating", nil]]
+  ↳ app/controllers/buildings_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/buildings_controller.rb:28:in `block in create'
+Redirected to http://localhost:3000/buildings/1
+Completed 302 Found in 68ms (ActiveRecord: 10.6ms | Allocations: 6007)
+
+
+Started GET "/buildings/1" for ::1 at 2023-05-22 23:10:24 +0200
+Processing by BuildingsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mBuilding Load (0.2ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/buildings_controller.rb:64:in `set_building'
+  [1m[36mCACHE Building Load (0.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/buildings_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering buildings/show.html.erb within layouts/application
+  Rendered buildings/_building.html.erb (Duration: 1.9ms | Allocations: 348)
+  Rendered buildings/show.html.erb within layouts/application (Duration: 12.8ms | Allocations: 2016)
+  Rendered layout layouts/application.html.erb (Duration: 24.1ms | Allocations: 4315)
+Completed 200 OK in 35ms (Views: 25.4ms | ActiveRecord: 0.2ms | Allocations: 7580)
+
+
+Started GET "/buildings/" for ::1 at 2023-05-22 23:10:33 +0200
+Processing by BuildingsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (0.2ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  ↳ app/views/buildings/index.html.erb:6
+  Rendered buildings/_building.html.erb (Duration: 0.1ms | Allocations: 29)
+  Rendered buildings/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1166)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 3360)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.2ms | Allocations: 3666)
+
+
+Started GET "/buildings/1" for ::1 at 2023-05-22 23:10:37 +0200
+Processing by BuildingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBuilding Load (0.1ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/buildings_controller.rb:64:in `set_building'
+  [1m[36mCACHE Building Load (0.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/buildings_controller.rb:11:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering buildings/show.html.erb within layouts/application
+  Rendered buildings/_building.html.erb (Duration: 0.1ms | Allocations: 29)
+  Rendered buildings/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 766)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 2951)
+Completed 200 OK in 7ms (Views: 4.6ms | ActiveRecord: 0.1ms | Allocations: 4144)
+
+
+Started GET "/buildings/1/edit" for ::1 at 2023-05-22 23:10:59 +0200
+Processing by BuildingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBuilding Load (0.1ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/buildings_controller.rb:64:in `set_building'
+  Rendering layout layouts/application.html.erb
+  Rendering buildings/edit.html.erb within layouts/application
+  Rendered buildings/_form.html.erb (Duration: 6.6ms | Allocations: 2668)
+  Rendered buildings/edit.html.erb within layouts/application (Duration: 8.0ms | Allocations: 2943)
+  Rendered layout layouts/application.html.erb (Duration: 68.6ms | Allocations: 5137)
+Completed 200 OK in 71ms (Views: 69.1ms | ActiveRecord: 0.1ms | Allocations: 5931)
+
+
+Started GET "/buildings" for ::1 at 2023-05-22 23:11:02 +0200
+Processing by BuildingsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (0.1ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  ↳ app/views/buildings/index.html.erb:6
+  Rendered buildings/_building.html.erb (Duration: 0.1ms | Allocations: 29)
+  Rendered buildings/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 998)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3196)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.1ms | Allocations: 3477)
+
+
