@@ -30,6 +30,9 @@ gem "jbuilder"
 # Implement image uploading functionality
 gem 'carrierwave'
 
+# Implement star rating functionality
+gem 'ratyrate'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
