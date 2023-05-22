@@ -1,5 +1,9 @@
 class Building < ApplicationRecord
-  class Building < ApplicationRecord
-      mount_uploader :image, ImageUploader
+  has_many :reviews
+  mount_uploader :image, ImageUploader
+
+  def update_average_rating
+    self.average_rating = reviews.average(:rating).round(2)
+    save
   end
 end
