@@ -3,7 +3,17 @@ class BuildingsController < ApplicationController
 
   # GET /buildings or /buildings.json
   def index
-    @buildings = Building.all
+    if params[:search]
+      @buildings = Building.where("name LIKE ? OR address LIKE ? OR neighborhood LIKE ? OR city LIKE ? OR country LIKE ? OR description LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+    else
+      @buildings = Building.all
+    end
+  end
+
+  # GET /search
+  def search
+    @buildings = Building.where("name LIKE ? OR address LIKE ? OR neighborhood LIKE ? OR city LIKE ? OR country LIKE ? OR description LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+    render :index
   end
 
   # GET /buildings/1 or /buildings/1.json
@@ -66,6 +76,6 @@ class BuildingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def building_params
-      params.require(:building).permit(:name, :address, :neighborhood, :city, :country, :latitude, :longitude, :image)
+      params.require(:building).permit(:name, :address, :neighborhood, :city, :country, :description, :latitude, :longitude, :image)
     end
 end

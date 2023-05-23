@@ -1,5 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
+<h1>Search</h1>
+<div id="search">
+  <%= form_tag buildings_path, method: :get do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search buildings" %>
+    <%= submit_tag "Search" %>
+  <% end %>
+</div>
+
 <h1>Buildings</h1>
 
 <div id="buildings">
