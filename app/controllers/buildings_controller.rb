@@ -3,7 +3,17 @@ class BuildingsController < ApplicationController
 
   # GET /buildings or /buildings.json
   def index
-    @buildings = Building.all
+    if params[:search]
+      @buildings = Building.where("name LIKE ? OR address LIKE ? OR neighborhood LIKE ? OR city LIKE ? OR country LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+    else
+      @buildings = Building.all
+    end
+  end
+
+  # GET /search
+  def search
+    @buildings = Building.where("name LIKE ? OR address LIKE ? OR neighborhood LIKE ? OR city LIKE ? OR country LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+    render :index
   end
 
   # GET /buildings/1 or /buildings/1.json
