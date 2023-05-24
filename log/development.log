@@ -899,3 +899,112 @@ Processing by BuildingsController#index as HTML
 Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.1ms | Allocations: 3983)
 
 
+Started GET "/buildings" for ::1 at 2023-05-24 22:11:02 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BuildingsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (0.6ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  ↳ app/views/buildings/index.html.erb:14
+  Rendered buildings/_building.html.erb (Duration: 1.2ms | Allocations: 438)
+  Rendered buildings/index.html.erb within layouts/application (Duration: 24.5ms | Allocations: 10992)
+  Rendered layout layouts/application.html.erb (Duration: 107.4ms | Allocations: 46022)
+Completed 200 OK in 142ms (Views: 111.3ms | ActiveRecord: 1.1ms | Allocations: 52928)
+
+
+Started GET "/buildings" for ::1 at 2023-05-24 22:13:05 +0200
+Processing by BuildingsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (0.2ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  ↳ app/views/buildings/index.html.erb:14
+  Rendered buildings/_building.html.erb (Duration: 0.6ms | Allocations: 39)
+  Rendered buildings/index.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1354)
+  Rendered layout layouts/application.html.erb (Duration: 31.2ms | Allocations: 3656)
+Completed 200 OK in 35ms (Views: 32.0ms | ActiveRecord: 0.2ms | Allocations: 4040)
+
+
+Started GET "/buildings" for ::1 at 2023-05-24 22:13:13 +0200
+Processing by BuildingsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (1.1ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  ↳ app/views/buildings/index.html.erb:14
+  Rendered buildings/_building.html.erb (Duration: 0.2ms | Allocations: 33)
+  Rendered buildings/index.html.erb within layouts/application (Duration: 9.8ms | Allocations: 1163)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 3348)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 1.1ms | Allocations: 3639)
+
+
+Started GET "/buildings" for ::1 at 2023-05-24 22:16:55 +0200
+Processing by BuildingsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (0.2ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  ↳ app/views/buildings/index.html.erb:14
+  Rendered buildings/_building.html.erb (Duration: 0.2ms | Allocations: 33)
+  Rendered buildings/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1161)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 3346)
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 0.2ms | Allocations: 3657)
+
+
+Started GET "/index.html" for ::1 at 2023-05-24 22:23:52 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/index.html"):
+  
+Started GET "/index.html" for ::1 at 2023-05-24 22:24:04 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/index.html"):
+  
+Started GET "/" for ::1 at 2023-05-24 22:24:11 +0200
+Processing by BuildingsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (0.5ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  ↳ app/views/buildings/index.html.erb:19
+  Rendered buildings/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 2113)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 4694)
+Completed 200 OK in 23ms (Views: 20.3ms | ActiveRecord: 1.2ms | Allocations: 5556)
+
+
+Started GET "/buildings/1" for ::1 at 2023-05-24 22:24:23 +0200
+Processing by BuildingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBuilding Load (3.0ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/buildings_controller.rb:74:in `set_building'
+  [1m[36mCACHE Building Load (0.2ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/buildings_controller.rb:21:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering buildings/show.html.erb within layouts/application
+  Rendered buildings/_building.html.erb (Duration: 1.0ms | Allocations: 332)
+  Rendered buildings/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1750)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 4045)
+Completed 200 OK in 36ms (Views: 9.1ms | ActiveRecord: 3.2ms | Allocations: 9574)
+
+
+Started GET "/" for ::1 at 2023-05-24 22:32:22 +0200
+Processing by BuildingsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (0.8ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  ↳ app/views/buildings/index.html.erb:19
+  Rendered buildings/index.html.erb within layouts/application (Duration: 31.8ms | Allocations: 2090)
+  Rendered layout layouts/application.html.erb (Duration: 233.8ms | Allocations: 24202)
+Completed 500 Internal Server Error in 247ms (ActiveRecord: 1.7ms | Allocations: 25076)
+
+
+  
+ActionView::Template::Error (undefined method `javascript_pack_tag' for #<ActionView::Base:0x0000000000ccd8>
+
+    '.freeze;@output_buffer.append=( javascript_pack_tag "custom" );@output_buffer.safe_append='
+                                     ^^^^^^^^^^^^^^^^^^^
+Did you mean?  javascript_path
+               javascript_tag):
+    12: 
+    13:   <body>
+    14:     <%= yield %>
+    15:     <%= javascript_pack_tag "custom" %>
+    16:   </body>
+    17: </html>
+  
+app/views/layouts/application.html.erb:15

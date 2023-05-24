@@ -10,12 +10,20 @@
 
 <h1>Buildings</h1>
 
+<%= form_tag buildings_path, method: :get do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Buildings" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
 <div id="buildings">
   <% @buildings.each do |building| %>
-    <%= render building %>
-    <p>
-      <%= link_to "Show this building", building %>
-    </p>
+    <div class="building">
+      <h2><%= building.name %></h2>
+      <p><%= building.address %></p>
+      <p><%= building.description %></p>
+      <p>Average Rating: <%= building.average_rating %></p>
+      <%= link_to "Show", building_path(building) %>
+    </div>
   <% end %>
 </div>
 
