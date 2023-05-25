@@ -57,6 +57,9 @@ gem "font-awesome-sass", "~> 6.2"
 # Use Simple Form for forms
 gem "simple_form"
 
+# Use AutoPrefixer to add vendor prefixes to CSS rules
+gem "autoprefixer-rails"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
