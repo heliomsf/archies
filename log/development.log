@@ -899,3 +899,16 @@ Processing by BuildingsController#index as HTML
 Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.1ms | Allocations: 3983)
 
 
+Started GET "/" for ::1 at 2023-05-24 22:52:50 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BuildingsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buildings/index.html.erb within layouts/application
+  [1m[36mBuilding Load (0.6ms)[0m  [1m[34mSELECT "buildings".* FROM "buildings"[0m
+  ↳ app/views/buildings/index.html.erb:14
+  Rendered buildings/_building.html.erb (Duration: 1.1ms | Allocations: 438)
+  Rendered buildings/index.html.erb within layouts/application (Duration: 23.4ms | Allocations: 10971)
+  Rendered layout layouts/application.html.erb (Duration: 123.5ms | Allocations: 46764)
+Completed 200 OK in 146ms (Views: 128.5ms | ActiveRecord: 1.0ms | Allocations: 53557)
+
+
