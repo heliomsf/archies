@@ -17,6 +17,9 @@ git merge feature_branch
 Using the git-flow extensions:
 git flow feature finish feature_branch
 
+Last command:
+git push origin develop 
+
 https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
 
 https://danielkummer.github.io/git-flow-cheatsheet/index.html
