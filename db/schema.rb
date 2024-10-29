@@ -11,14 +11,21 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_05_23_210710) do
-  create_table "buildings", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.float "latitude"
-    t.float "longitude"
-    t.string "neighborhood"
-    t.string "city"
-    t.string "country"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "registers", force: :cascade do |t|
+    t.string "cdgpdf"
+    t.string "ref"
+    t.string "autorcargo"
+    t.string "destinatariocargo"
+    t.string "titulo"
+    t.string "local"
+    t.string "data1"
+    t.string "data2"
+    t.string "data3"
+    t.string "acesso"
+    t.string "obs"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
@@ -27,21 +34,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_23_210710) do
   end
 
   create_table "reviews", force: :cascade do |t|
+    t.string "title"
     t.text "content"
     t.integer "rating"
-    t.integer "building_id", null: false
+    t.bigint "register_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["building_id"], name: "index_reviews_on_building_id"
+    t.index ["register_id"], name: "index_reviews_on_register_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
+    t.string "name"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "reviews", "buildings"
+  add_foreign_key "reviews", "registers"
 end

@@ -21,14 +21,14 @@ class ReviewsController < ApplicationController
 
   # POST /reviews or /reviews.json
   def create
-    @building = Building.find(params[:building_id])
-    @review = @building.reviews.new(review_params)
+    @register = Register.find(params[:register_id])
+    @review = @register.reviews.new(review_params)
     @review.user_id = current_user.id
   
     respond_to do |format|
       if @review.save
-        @building.update_average_rating
-        format.html { redirect_to @building, notice: 'Review was successfully created.' }
+        @register.update_average_rating
+        format.html { redirect_to @register, notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
@@ -68,6 +68,6 @@ class ReviewsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def review_params
-      params.require(:review).permit(:title, :content, :rating, :building_id)
+      params.require(:review).permit(:title, :content, :rating, :register_id)
     end
 end

@@ -1,0 +1,82 @@
+<%= form_with(model: register) do |form| %>
+  <% if register.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(register.errors.count, "error") %> prohibited this register from being saved:</h2>
+
+      <ul>
+        <% register.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :cdgpdf, style: "display: block" %>
+    <%= form.text_field :cdgpdf %>
+  </div>
+
+  <div>
+    <%= form.label :ref, style: "display: block" %>
+    <%= form.text_field :ref %>
+  </div>
+
+  <div>
+    <%= form.label :autorcargo, style: "display: block" %>
+    <%= form.text_field :autorcargo %>
+  </div>
+
+  <div>
+    <%= form.label :destinatariocargo, style: "display: block" %>
+    <%= form.text_field :destinatariocargo %>
+  </div>
+
+  <div>
+    <%= form.label :titulo, style: "display: block" %>
+    <%= form.text_field :titulo %>
+  </div>
+
+  <div>
+    <%= form.label :local, style: "display: block" %>
+    <%= form.text_field :local %>
+  </div>
+
+  <div>
+    <%= form.label :data1, style: "display: block" %>
+    <%= form.text_field :data1 %>
+  </div>
+
+<div>
+    <%= form.label :data2, style: "display: block" %>
+    <%= form.text_field :data2 %>
+  </div>
+
+<div>
+    <%= form.label :data3, style: "display: block" %>
+    <%= form.text_field :data3 %>
+</div>
+
+<div>
+    <%= form.label :acesso, style: "display: block" %>
+    <%= form.text_field :acesso %>
+  </div>
+
+<div>
+    <%= form.label :obs, style: "display: block" %>
+    <%= form.text_field :obs %>
+</div>
+
+<div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, rows: 3 %>
+</div>
+
+<div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+</div>
+
+<div>
+    <%= form.submit %>
+</div>
+<% end %>

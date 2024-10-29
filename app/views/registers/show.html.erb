@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @register %>
+
+<div>
+  <p><strong>Description:</strong> <%= @register.description %></p>
+
+  <% if @register.image? %>
+    <%= image_tag @register.image.url %>
+  <% end %>
+  
+  <p>Average rating: <%= @register.average_rating %></p>
+
+  <%= link_to "Edit this register", edit_register_path(@register) %> |
+  <%= link_to "Back to registers", registers_path %>
+
+  <%= button_to "Delete this register", @register, method: :delete %>
+</div>

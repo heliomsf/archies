@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   resources :users
   resources :reviews
-  resources :buildings
+  resources :registers
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  get 'buildings', to: 'buildings#index'
-  get 'search', to: 'buildings#search'
-  root 'buildings#index'
+  get 'registers', to: 'registers#index'
+  get 'search', to: 'registers#search'
+  root 'registers#index'
   # Defines the root path route ("/")
   # root "articles#index"
 end

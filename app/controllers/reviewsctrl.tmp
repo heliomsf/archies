@@ -1,8 +1,8 @@
 class ReviewsController < ApplicationController
     def create
-      @building = Building.find(params[:building_id])
-      @review = @building.reviews.create(review_params)
-      redirect_to building_path(@building)
+      @register = Building.find(params[:register_id])
+      @review = @register.reviews.create(review_params)
+      redirect_to register_path(@register)
     end
     
     private

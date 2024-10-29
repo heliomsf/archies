@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+
+<%= image_tag "logo.png", alt: "Araucaria", width: 400 %>
+
+<h1>Search</h1>
+<div id="search">
+  <%= form_tag registers_path, method: :get do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search registers" %>
+    <%= submit_tag "Search" %>
+  <% end %>
+</div>
+
+<%= link_to "New register", new_register_path %>
+
+<h1>All Registers</h1>
+
+<div id="registers">
+  <% @registers.each do |register| %>
+    <%= render partial: "register", locals: { register: register } %>
+  <% end %>
+</div>
+
+<%= link_to "New Register", new_register_path %>
